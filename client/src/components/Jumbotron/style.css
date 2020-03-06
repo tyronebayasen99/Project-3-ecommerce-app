@@ -1,0 +1,23 @@
+:root{
+    --mainSalmon: rgb(255, 255, 255);
+    --black: #000000;
+    --mainwhite: #ffffff;
+  
+  }
+  
+
+.jumbotron {
+    min-height: 350px;
+    padding-top: 100px;
+    font-family: 'Playfair Display', serif !important;
+  
+  }
+
+  h1 {
+color: var(--mainSalmon) !important;
+font-weight: bolder !important;
+  }
+
+  .underTag {
+    color: var(--mainWhite) !important;
+  }

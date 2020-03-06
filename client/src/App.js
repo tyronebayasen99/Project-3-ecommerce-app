@@ -1,9 +1,27 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import indexPage from "./pages/index";
+import cartPage from "./pages/cart";
 
-function App() {
+export default function App() {
     return (
-        <div>HI</div>
+
+
+        <Router>
+            <div>
+                <Switch>
+                    <Route exact path="/" component={indexPage} />
+
+                    {/* <Route exact path="/cart" component={cartPage} /> */}
+                </Switch>
+            </div>
+        </Router>
+
     );
 }
 
-export default App;

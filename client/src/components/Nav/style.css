@@ -1,0 +1,29 @@
+:root{
+    --mainSalmon: rgb(255, 255, 255);
+    --black: #000000;
+    --mainwhite: #ffffff;
+  
+  }
+  
+  body{
+    font-family: 'Playfair Display', serif !important;
+    background: var(--mainwhite) !important;
+    /* color: var(--mainSalmon) !important;
+   */
+  }
+  
+  .text-title{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+  }
+
+ #nav {
+     color: var(--black) !important;
+     font-family: 'Playfair Display', serif !important;
+    
+ }
+
+ .navbar {
+    background-color: var(--mainSalmon) !important;
+ }

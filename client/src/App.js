@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    // Link
 } from "react-router-dom";
 import indexPage from "./pages/index";
 import cartPage from "./pages/cart";
@@ -17,7 +17,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={indexPage} />
 
-                    {/* <Route exact path="/cart" component={cartPage} /> */}
+                    <Route exact path="/cart" component={cartPage} />
                 </Switch>
             </div>
         </Router>

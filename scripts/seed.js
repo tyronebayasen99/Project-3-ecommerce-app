@@ -10,28 +10,28 @@ mongoose.connect(
 
 const merchSeed = [
     {
-        title: "Merch 1",
-        description: "Description 1",
+        dateRange: "Merch 1",
+        location: "Description 1",
         price: 1,
-        inStock: true
+        isSaved: false
     },
     {
         title: "Merch 2",
-        description: "Description 2",
+        location: "Description 2",
         price: 1,
-        inStock: true
+        isSaved: false
     },
     {
         title: "Merch 3",
-        description: "Description 3",
+        location: "Description 3",
         price: 1,
-        inStock: true
+        isSaved: false
     },
     {
         title: "Merch 4",
-        description: "Description 4",
+        location: "Description 4",
         price: 1,
-        inStock: true
+        isSaved: false
     }
 ]
 

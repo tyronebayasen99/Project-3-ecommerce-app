@@ -4,14 +4,14 @@ import { MdShoppingCart } from 'react-icons/md';
 
 const Card = () => {
     return (
-        <div class="card">
-            {/* <img src="..." class="card-img-top" alt="..."> */}
-            <div class="card-body">
-                <h5 class="card-title">Flight Location</h5>
-                <p class="card-text">Trip & description </p>
-                <p class="card-text">Price</p>
-                <button> Add to Cart <MdShoppingCart /></button>
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+        <div className="card">
+            {/* <img src="..." className="card-img-top" alt="..."> */}
+            <div className="card-body">
+                <h5 className="card-title">Flight Location</h5>
+                <p className="card-text">Trip & description </p>
+                <p className="card-text">Price</p>
+                <button> Save your trip <MdShoppingCart /></button>
+                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
             </div>
         </div>
 

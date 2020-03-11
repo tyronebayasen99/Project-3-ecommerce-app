@@ -6,8 +6,12 @@ function Nav() {
 
     return (
         <nav className="navbar">
-            <a className="navbar-brand" href="/" id="nav">
+            <a className="navbar-brand" href="/maximalist" id="nav">
                 Maximalist
+      </a>
+
+            <a className="navbar-brand" href="/" id="nav">
+                Search Trip
       </a>
 
 
@@ -18,7 +22,7 @@ function Nav() {
 
             <a className="navbar-brand" href="/saved" id="nav">
 
-                <h4>   <MdShoppingCart /> Cart</h4>
+                <h4>   <MdShoppingCart /> Saved</h4>
 
 
             </a>

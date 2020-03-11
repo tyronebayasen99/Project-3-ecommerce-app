@@ -1,26 +1,30 @@
-var express = require("express");
-var mongoose = require("mongoose");
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const routes = require("./routes");
 
-var PORT = process.env.PORT || 3001;
-var app = express();
+const PORT = process.env.PORT || 3001;
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
 
 app.use(express.static("./public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoStorefront";
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/mongoStorefront";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-var routes = require("./routes/index");
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(routes);
 
-app.listen(PORT, function () {
-    console.log("App running on port " + PORT + "!");
+app.listen(PORT, function() {
+  console.log("App running on port " + PORT + "!");
 });

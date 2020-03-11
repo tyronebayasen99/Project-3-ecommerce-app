@@ -1,3 +1,4 @@
 module.exports = {
-    Merch: require("./merch")
+  Merch: require("./merch"),
+  Products: require("./Products")
 };

@@ -1,9 +1,8 @@
 import React from "react";
+import Index from "./pages/index";
 
 function App() {
-    return (
-        <div>HI</div>
-    );
+  return <Index />;
 }
 
 export default App;

@@ -33,5 +33,12 @@
 
   .FrontPage {
       font-size: 55px;
-      position: absolute;
+      position: center;
+      text-align: center;
+      padding-top: 40px;
+      color: white;
+  }
+
+  .slides {
+    height: 500px;
   }

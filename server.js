@@ -1,6 +1,7 @@
+require("dotenv").config();
 var express = require("express");
 var mongoose = require("mongoose");
-
+var authMiddleware = require("./auth");
 var PORT = process.env.PORT || 3001;
 var app = express();
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(express.static("./public"));
+app.use(authMiddleware());
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoStorefront";
 

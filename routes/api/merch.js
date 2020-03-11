@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const merchController = require("../../controllers/merchandise_controller");
 
-router.route("/")
+router
+    .route("/")
     .get(merchController.findAll)
     .post(merchController.create);
 

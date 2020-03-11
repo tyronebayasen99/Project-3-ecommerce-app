@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import logoImg from '../img/logo.jpg';
 import { Card, Logo, Form, Input, Button } from '../components/AuthForm';
@@ -12,9 +12,10 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const { setAuthTokens } = useAuth();
+    const referer = '/admin';
 
     function postSignup() {
-        axios.post("/api/user/signup", {
+        axios.post("/api/auth/signup", {
             email: userName,
             password
         }).then(result => {
@@ -32,11 +33,18 @@ function Signup() {
 
     }
 
+    if (isLoggedIn) {
+        return <Redirect to={referer} />;
+    }
+
     function checkPass() {
         if (password === password2) {
             postSignup();
+        } else {
+            alert("Passwords do not match.")
         }
     }
+
 
     return (
         <Card>

@@ -11,19 +11,13 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
-    const referer = '/';
-
-    function prePostCheck() {
-
-        postLogin();
-    }
+    const referer = '/admin';
 
     function postLogin() {
         axios.post("/api/auth/login", {
             email: userName,
             password
         }).then(result => {
-            console.log(result);
             if (result.data !== "No user found with that email." && result.data !== "Invalid password.") {
                 setAuthTokens(result.data);
                 setLoggedIn(true);
@@ -59,7 +53,7 @@ function Login(props) {
                     }}
                     placeholder='password'
                 />
-                <Button onClick={prePostCheck}>Sign In</Button>
+                <Button onClick={postLogin}>Sign In</Button>
             </Form>
             <Link to='/signup'>Don't have an account?</Link>
             {isError && <Error>The username or password provided were incorrect!</Error>}

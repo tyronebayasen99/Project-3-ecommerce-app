@@ -6,7 +6,7 @@ import {
     // Link
 } from "react-router-dom";
 import indexPage from "./pages/index";
-import cartPage from "./pages/cart";
+import savedPage from "./pages/saved";
 import frontPage from "./pages/Frontpage";
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={indexPage} />
 
-                    <Route exact path="/cart" component={cartPage} />
+                    <Route exact path="/saved" component={savedPage} />
 
                     <Route exact path="/maximalist" component={frontPage} />
                 </Switch>

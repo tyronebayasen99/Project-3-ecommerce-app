@@ -7,19 +7,20 @@ import Button from "../components/Button";
 
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
+import SavedCard from "../components/SavedCard";
 
 
-function Cart() {
+function Saved() {
     return (
         <div>
             <Nav>
             </Nav>
             <Nav1></Nav1>
-            <Jumbotron ></Jumbotron>
+
 
             <Container>
 
-
+                <SavedCard></SavedCard>
             </Container>
 
         </div>
@@ -28,4 +29,4 @@ function Cart() {
 
 }
 
-export default Cart;
+export default Saved;

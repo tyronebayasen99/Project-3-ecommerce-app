@@ -18,15 +18,17 @@
     text-transform: uppercase;
   }
 
- #nav {
+ #nav, h4 {
      color: var(--black) !important;
      font-family: 'Playfair Display', serif !important;
+     font-size: 20px;
     
  }
 
  #navItems {
     color: var(--black) !important;
     font-family: 'Playfair Display', serif !important;
+    
  }
 
  

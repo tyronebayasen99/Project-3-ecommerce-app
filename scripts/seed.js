@@ -16,19 +16,19 @@ const merchSeed = [
         isSaved: false
     },
     {
-        title: "Merch 2",
+        dateRange: "Merch 2",
         location: "Description 2",
         price: 1,
         isSaved: false
     },
     {
-        title: "Merch 3",
+        dateRange: "Merch 3",
         location: "Description 3",
         price: 1,
         isSaved: false
     },
     {
-        title: "Merch 4",
+        dateRange: "Merch 4",
         location: "Description 4",
         price: 1,
         isSaved: false

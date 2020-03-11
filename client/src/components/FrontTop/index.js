@@ -4,10 +4,10 @@ import { useTransition, animated, config } from 'react-spring'
 import './styles.css'
 
 const slides = [
-    { id: 0, url: 'photo-1544511916-0148ccdeb877?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1901&q=80i' },
-    { id: 1, url: 'photo-1544572571-ab94fd872ce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1534&q=80' },
+    { id: 0, url: 'photo-1544572571-ab94fd872ce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1534&q=80' },
+    { id: 1, url: 'photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80' },
     { id: 2, url: 'reserve/bnW1TuTV2YGcoh1HyWNQ_IMG_0207.JPG?ixlib=rb-1.2.1&w=1534&q=80' },
-    { id: 3, url: 'photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80' },
+    { id: 3, url: 'photo-1544511916-0148ccdeb877?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1901&q=80i' },
 ]
 
 const FrontTop = () => {
@@ -18,13 +18,13 @@ const FrontTop = () => {
         leave: { opacity: 0 },
         config: config.molasses,
     })
-    useEffect(() => void setInterval(() => set(state => (state + 1) % 4), 10000), [])
+    useEffect(() => void setInterval(() => set(state => (state + 1) % 4), 5000), [])
     return transitions.map(({ item, props, key }) => (
         <animated.div
             key={key}
             className="slides"
             style={{ ...props, backgroundImage: `url(https://images.unsplash.com/${item.url}&auto=format&fit=crop)` }}
-        ><div className="FrontPage">Maximize your life</div></animated.div>
+        ><div className="FrontPage">Maximize your life</div><div className="miniHeader">In the end, we only regret not living life to the max.</div> <div className="bottomInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></animated.div>
     ))
 }
 

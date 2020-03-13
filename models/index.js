@@ -1,3 +1,4 @@
 module.exports = {
-    Merch: require("./merch")
+    Flight: require("./flight"),
+    User: require("./user")
 };

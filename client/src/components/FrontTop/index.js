@@ -1,4 +1,4 @@
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 import React, { useState, useEffect } from 'react'
 import { useTransition, animated, config } from 'react-spring'
 import './styles.css'

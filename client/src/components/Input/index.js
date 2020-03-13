@@ -9,8 +9,6 @@ function Input() {
     return (
         <div className="input-group input-group-lg" id="inputPrice">
             <input value="Price Range" className="form-control" type="text" />
-
-
         </div>
     );
 }

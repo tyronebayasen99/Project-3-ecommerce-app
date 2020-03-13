@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
-import { MdShoppingCart } from 'react-icons/md';
+import { MdFlightTakeoff } from 'react-icons/md';
+import { MdGetApp } from 'react-icons/md';
+
 
 function Nav() {
 
@@ -11,7 +13,7 @@ function Nav() {
       </a>
 
             <a className="navbar-brand" href="/" id="nav">
-                Search Trip
+                <MdFlightTakeoff /> Search Trip
       </a>
 
 
@@ -22,7 +24,7 @@ function Nav() {
 
             <a className="navbar-brand" href="/saved" id="nav">
 
-                <h4>   <MdShoppingCart /> Saved</h4>
+                <h4>   <MdGetApp /> Saved</h4>
 
 
             </a>

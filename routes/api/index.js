@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const merchRoutes = require("./merch");
+const flightRoutes = require("./flight");
 const authRoutes = require("./auth");
 
-router.use("/merch", merchRoutes);
+router.use("/flight", flightRoutes);
 router.use("/auth", authRoutes);
 
 module.exports = router;

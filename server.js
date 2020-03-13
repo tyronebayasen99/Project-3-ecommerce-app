@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(express.static("./public"));
 app.use(authMiddleware());
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoStorefront";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoFlights";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 

@@ -11,53 +11,9 @@ Final Project Requirements
 * Must not expose sensitive API key information on the server, see [Protecting-API-Keys-In-Node.md](../../../../01-Class-Content/10-nodejs/03-Supplemental/Protecting-API-Keys-In-Node.md)
 
 
-module.exports = function (app) {
-    app.get('/api/user', function (req, res) {
-        res.json(req.user);
-    });
-
-    app.get('/api/user/logout', function (req, res) {
-        localStorage.clear();
-
-        res.json("Logged out user.");
-    });
-
-    app.post('/api/user/signup', async function (req, res) {
-        const email = req.body.email.toLowerCase();
-
-        const password = await bcrypt.hash(req.body.password, 10);
-
-        const user = await db.User.create({
-            email: email,
-            password: password
-        });
-
-        const token = jwt.sign({ _id: user._id }, process.env.APP_SECRET);
-
-        res.json(token);
-    });
-
-    app.post('/api/user/login', async function (req, res) {
-        const user = await db.User.findOne({
-            where: {
-                email: req.body.email
-            }
-        });
-
-        if (!user) {
-            res.json("No user found with that email.")
-        }
-
-        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
-
-        if (!isPasswordCorrect) {
-            res.json("Invalid password.");
-        }
-
-        const token = jwt.sign({ _id: user._id }, process.env.APP_SECRET);
-
-        delete user.dataValues.password;
-
-        res.json(token);
-    });
-};
+I need to:
+  --> fix react html to fit the login form into the app better
+  --> collect date data from range selector
+  --> store to private save route only accessible if logged in
+  --> if click "saved" w/o being logged in then redirect to login page
+  --> have better ui and buttons w/ login forms

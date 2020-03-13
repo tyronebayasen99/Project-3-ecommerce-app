@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { AuthContext } from './context/auth';
 import PrivateRoute from './PrivateRoute';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Home from './pages/Home';
 import Admin from './pages/Admin';
+import indexPage from "./pages/index";
+import cartPage from "./pages/cart";
+import frontPage from "./pages/Frontpage";
 
-function App(props) {
+export default function App(props) {
     const [authTokens, setAuthTokens] = useState();
 
     const setTokens = (data) => {
@@ -19,6 +21,16 @@ function App(props) {
         <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
             <Router>
                 <div>
+                    <Switch>
+                        <Route exact path="/" component={indexPage} />
+
+                        <Route exact path="/cart" component={cartPage} />
+
+                        <Route exact path="/maximalist" component={frontPage} />
+                    </Switch>
+                </div>
+
+                <div>
                     <ul>
                         <li>
                             <Link to='/'>Home Page</Link>
@@ -27,7 +39,7 @@ function App(props) {
                             <Link to='/admin'>Admin Page</Link>
                         </li>
                     </ul>
-                    <Route exact path='/' component={Home} />
+                    {/* <Route exact path='/' component={Home} /> */}
                     <Route path='/login' component={Login} />
                     <Route path='/signup' component={Signup} />
                     <PrivateRoute path='/admin' component={Admin} />
@@ -37,4 +49,3 @@ function App(props) {
     );
 }
 
-export default App;

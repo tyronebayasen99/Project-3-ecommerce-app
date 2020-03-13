@@ -1,0 +1,40 @@
+:root{
+    --mainSalmon: rgb(255, 255, 255);
+    --black: #000000;
+    --mainwhite: #ffffff;
+  
+  }
+  
+
+.jumbotron {
+    min-height: 390px;
+    padding-top: 80px;
+    font-family: 'Playfair Display', serif !important;
+    position: relative;
+  
+  }
+
+  h1 {
+color: var(--mainSalmon) !important;
+font-weight: bolder !important;
+z-index: 8;
+position: relative;
+  }
+
+  .underTag {
+      position: relative;
+    color: var(--mainWhite) !important;
+    z-index: 99;
+    font-weight: bolder;
+  }
+
+.image1 {
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+    position: absolute;
+    z-index: 1;
+    opacity: .7;
+   
+}

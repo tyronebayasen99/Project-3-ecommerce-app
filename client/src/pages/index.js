@@ -6,6 +6,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { useAuth } from '../context/auth';
 import DateRange from "../components/DateRange";
+import PriceRange from "../components/PriceRange/index"
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from 'react-spring';
@@ -22,6 +23,8 @@ function Index() {
     const [items, setitems] = useState([]);
     const [itemSearch, setitemSearch] = useState("");
 
+
+    const [showPriceSlider, setShowPriceSlider] = useState(false)
     function logOut() {
         setAuthTokens();
         localStorage.clear();
@@ -52,6 +55,20 @@ function Index() {
 
 
                         <DateRange></DateRange>
+
+                        {showPriceSlider === false ?
+                            <button onClick={() => { setShowPriceSlider(true) }}>Choose Price Range</button>
+
+
+                            :
+
+                            <>
+                                <PriceRange />
+
+                                <button onClick={() => { setShowPriceSlider(false) }}>Set Price Range</button>
+
+                            </>
+                        }
                     </Col>
                 </Row>
             </div>

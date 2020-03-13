@@ -8,6 +8,7 @@ import DateRange from "../components/DateRange";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
+import PriceRange from "../components/PriceRange"
 import { useAuth } from '../context/auth';
 
 function FrontPage() {

@@ -9,3 +9,11 @@ Final Project Requirements
 * Must have folder structure that meets MVC Paradigm
 * Must meet good quality coding standards (indentation, scoping, naming)
 * Must not expose sensitive API key information on the server, see [Protecting-API-Keys-In-Node.md](../../../../01-Class-Content/10-nodejs/03-Supplemental/Protecting-API-Keys-In-Node.md)
+
+
+I need to:
+  --> fix react html to fit the login form into the app better
+  --> collect date data from range selector
+  --> store to private save route only accessible if logged in
+  --> if click "saved" w/o being logged in then redirect to login page
+  --> have better ui and buttons w/ login forms

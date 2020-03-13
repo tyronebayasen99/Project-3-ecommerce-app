@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import Nav1 from "../components/NavBottom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { useAuth } from '../context/auth';
 import DateRange from "../components/DateRange";
 import PriceRange from "../components/PriceRange/index"
 // import API from "../utils/API";
@@ -17,12 +18,19 @@ import Animations from "../components/Animations";
 
 
 function Index() {
-
+    const { setAuthTokens } = useAuth();
+    const { authTokens } = useAuth();
     const [items, setitems] = useState([]);
     const [itemSearch, setitemSearch] = useState("");
 
 
     const [showPriceSlider, setShowPriceSlider] = useState(false)
+    function logOut() {
+        setAuthTokens();
+        localStorage.clear();
+        window.location.reload();
+    }
+
     return (
         <div>
             <Nav>
@@ -40,14 +48,13 @@ function Index() {
                                 placeholder="search for an item" />
                             <br></br>
 
-<<<<<<< HEAD
-                <Col size="xs-6 sm-6">
-                    <Container>
-                        {/* <Input
-                            placeholder="search for an item" />
-                        <br></br> */}
+
+                        </Container>
+                    </Col>
+                    <Col size="xs-3 sm-3">
 
 
+                        <DateRange></DateRange>
 
                         {showPriceSlider === false ?
                             <button onClick={() => { setShowPriceSlider(true) }}>Choose Price Range</button>
@@ -62,23 +69,6 @@ function Index() {
 
                             </>
                         }
-                    </Container>
-                </Col>
-                <Col size="xs-6 sm-6">
-
-
-                    <DateRange></DateRange>
-                </Col>
-            </Row>
-=======
-
-                        </Container>
-                    </Col>
-                    <Col size="xs-3 sm-3">
-
->>>>>>> 4739f87693c082d8416333bca86f1668b5a79c42
-
-                        <DateRange></DateRange>
                     </Col>
                 </Row>
             </div>
@@ -87,6 +77,10 @@ function Index() {
                 <br></br>
                 <Card></Card>
             </Container>
+
+
+            {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
+
 
         </div >
     );

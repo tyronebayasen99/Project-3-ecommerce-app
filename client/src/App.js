@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthContext } from './context/auth';
 import PrivateRoute from './PrivateRoute';
 import Login from './pages/Login';
@@ -10,7 +10,7 @@ import savedPage from "./pages/saved";
 import frontPage from "./pages/Frontpage";
 
 export default function App(props) {
-    const [authTokens, setAuthTokens] = useState();
+    const [authTokens, setAuthTokens] = useState(localStorage.getItem("tokens"));
 
     const setTokens = (data) => {
         localStorage.setItem("tokens", JSON.stringify(data));
@@ -22,27 +22,19 @@ export default function App(props) {
             <Router>
                 <div>
                     <Switch>
+
                         <Route exact path="/" component={indexPage} />
 
-                        <Route exact path="/saved" component={savedPage} />
-
                         <Route exact path="/maximalist" component={frontPage} />
-                    </Switch>
-                </div>
 
-                <div>
-                    <ul>
-                        <li>
-                            <Link to='/'>Home Page</Link>
-                        </li>
-                        <li>
-                            <Link to='/admin'>Admin Page</Link>
-                        </li>
-                    </ul>
-                    {/* <Route exact path='/' component={Home} /> */}
-                    <Route path='/login' component={Login} />
-                    <Route path='/signup' component={Signup} />
-                    <PrivateRoute path='/admin' component={Admin} />
+                        <Route path='/login' component={Login} />
+
+                        <Route path='/signup' component={Signup} />
+
+                        <PrivateRoute exact path="/saved" component={savedPage} />
+                        <PrivateRoute path='/admin' component={Admin} />
+
+                    </Switch>
                 </div>
             </Router>
         </AuthContext.Provider>

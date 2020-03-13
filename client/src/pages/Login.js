@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import logoImg from '../img/logo.jpg';
+import logoImg from '../img/user.png';
+import Nav from '../components/Nav';
+import NavBottom from '../components/NavBottom';
 import { Card, Logo, Form, Input, Button, Error } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
@@ -11,7 +13,7 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
-    const referer = '/admin';
+    const referer = '/';
 
     function postLogin() {
         axios.post("/api/auth/login", {
@@ -34,30 +36,35 @@ function Login(props) {
     }
 
     return (
-        <Card>
-            <Logo src={logoImg} />
-            <Form>
-                <Input
-                    type='email'
-                    value={userName}
-                    onChange={e => {
-                        setUserName(e.target.value);
-                    }}
-                    placeholder='email'
-                />
-                <Input
-                    type='password'
-                    value={password}
-                    onChange={e => {
-                        setPassword(e.target.value);
-                    }}
-                    placeholder='password'
-                />
-                <Button onClick={postLogin}>Sign In</Button>
-            </Form>
-            <Link to='/signup'>Don't have an account?</Link>
-            {isError && <Error>The username or password provided were incorrect!</Error>}
-        </Card>
+        <div>
+            <Nav></Nav>
+            <NavBottom></NavBottom>
+
+            <Card>
+                <Logo src={logoImg} />
+                <Form>
+                    <Input
+                        type='email'
+                        value={userName}
+                        onChange={e => {
+                            setUserName(e.target.value);
+                        }}
+                        placeholder='email'
+                    />
+                    <Input
+                        type='password'
+                        value={password}
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                        placeholder='password'
+                    />
+                    <Button onClick={postLogin}>Sign In</Button>
+                </Form>
+                <Link to='/signup'>Don't have an account?</Link>
+                {isError && <Error>The username or password provided were incorrect!</Error>}
+            </Card>
+        </div>
     );
 };
 

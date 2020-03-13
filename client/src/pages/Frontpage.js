@@ -8,14 +8,26 @@ import Nav1 from "../components/NavBottom";
 // import API from "../utils/API";
 // import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
-
+import { useAuth } from '../context/auth';
 
 function FrontPage() {
+    const { setAuthTokens } = useAuth();
+    const { authTokens } = useAuth();
+
+    function logOut() {
+        setAuthTokens();
+        localStorage.clear();
+        window.location.reload();
+    }
+
     return (
         <div>
-            <Nav/>
-            <Nav1/>
-            <FrontJumbotron/>
+            <Nav>
+            </Nav>
+            <Nav1></Nav1>
+            <FrontJumbotron></FrontJumbotron>
+
+            {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
         </div>
     );
 }

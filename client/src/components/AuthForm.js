@@ -3,11 +3,13 @@ import styled from 'styled-components';
 const Card = styled.div`
   box-sizing: border-box;
   max-width: 410px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  margin: 10px auto;
+  padding: 10px 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
 `;
 
 const Form = styled.div`

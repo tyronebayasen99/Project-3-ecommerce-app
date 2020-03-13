@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import logoImg from '../img/logo.jpg';
+import logoImg from '../img/user.png';
+import Nav from '../components/Nav';
+import NavBottom from '../components/NavBottom';
 import { Card, Logo, Form, Input, Button } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
@@ -12,7 +14,7 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const { setAuthTokens } = useAuth();
-    const referer = '/admin';
+    const referer = '/';
 
     function postSignup() {
         axios.post("/api/auth/signup", {
@@ -37,6 +39,15 @@ function Signup() {
         return <Redirect to={referer} />;
     }
 
+    function checkEmail() {
+        const regexEmail = /\S+@\S+\.\S+/;
+        if (regexEmail.test(userName)) {
+            checkPass();
+        } else {
+            alert("Use valid email. Example: example@practice.com.")
+        }
+    }
+
     function checkPass() {
         if (password === password2) {
             postSignup();
@@ -47,34 +58,39 @@ function Signup() {
 
 
     return (
-        <Card>
-            <Logo src={logoImg} />
-            <Form >
-                <Input
-                    type='email'
-                    onChange={e => {
-                        setUserName(e.target.value);
-                    }}
-                    placeholder='email'
-                />
-                <Input
-                    type='password'
-                    onChange={e => {
-                        setPassword(e.target.value);
-                    }}
-                    placeholder='password'
-                />
-                <Input
-                    type='password'
-                    onChange={e => {
-                        setPassword2(e.target.value);
-                    }}
-                    placeholder='password again'
-                />
-                <Button onClick={checkPass}>Sign Up</Button>
-            </Form>
-            <Link to='/login'>Already have an account?</Link>
-        </Card>
+        <div>
+            <Nav></Nav>
+            <NavBottom></NavBottom>
+
+            <Card>
+                <Logo src={logoImg} />
+                <Form >
+                    <Input
+                        type='email'
+                        onChange={e => {
+                            setUserName(e.target.value);
+                        }}
+                        placeholder='email'
+                    />
+                    <Input
+                        type='password'
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                        placeholder='password'
+                    />
+                    <Input
+                        type='password'
+                        onChange={e => {
+                            setPassword2(e.target.value);
+                        }}
+                        placeholder='confirm password'
+                    />
+                    <Button onClick={checkEmail}>Sign Up</Button>
+                </Form>
+                <Link to='/login'>Already have an account?</Link>
+            </Card>
+        </div>
     );
 };
 

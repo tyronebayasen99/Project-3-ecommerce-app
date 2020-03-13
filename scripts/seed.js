@@ -1,43 +1,41 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
-
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/mongoStorefront"
+    "mongodb://localhost/mongoFlights"
 );
 
-const merchSeed = [
+const flightSeed = [
     {
-        title: "Merch 1",
-        description: "Description 1",
+        date: "date 1",
+        destination: "dest 1",
         price: 1,
-        inStock: true
+        description: "descrip 1"
     },
     {
-        title: "Merch 2",
-        description: "Description 2",
-        price: 1,
-        inStock: true
+        date: "date 2",
+        destination: "dest 2",
+        price: 2,
+        description: "descrip 2"
     },
     {
-        title: "Merch 3",
-        description: "Description 3",
-        price: 1,
-        inStock: true
+        date: "date 3",
+        destination: "dest 3",
+        price: 3,
+        description: "descrip 3"
     },
     {
-        title: "Merch 4",
-        description: "Description 4",
-        price: 1,
-        inStock: true
+        date: "date 4",
+        destination: "dest 4",
+        price: 4,
+        description: "descrip 4"
     }
 ]
 
-db.Merch
+db.Flight
     .remove({})
-    .then(() => db.Merch.collection.insertMany(merchSeed))
+    .then(() => db.Flight.collection.insertMany(flightSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

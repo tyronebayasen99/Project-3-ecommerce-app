@@ -8,7 +8,7 @@ import DateRange from "../components/DateRange";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
-
+import PriceRange from "../components/PriceRange"
 
 function FrontPage() {
     return (
@@ -17,6 +17,7 @@ function FrontPage() {
             </Nav>
             <Nav1></Nav1>
             <FrontJumbotron></FrontJumbotron>
+
 
         </div>
     );

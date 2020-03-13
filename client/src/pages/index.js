@@ -5,6 +5,7 @@ import Nav1 from "../components/NavBottom";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import DateRange from "../components/DateRange";
+import PriceRange from "../components/PriceRange/index"
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from 'react-spring';
@@ -19,6 +20,9 @@ function Index() {
 
     const [items, setitems] = useState([]);
     const [itemSearch, setitemSearch] = useState("");
+
+
+    const [showPriceSlider, setShowPriceSlider] = useState(false)
     return (
         <div>
             <Nav>
@@ -32,11 +36,25 @@ function Index() {
 
                 <Col size="xs-6 sm-6">
                     <Container>
-                        <Input
+                        {/* <Input
                             placeholder="search for an item" />
-                        <br></br>
+                        <br></br> */}
 
 
+
+                        {showPriceSlider === false ?
+                            <button onClick={() => { setShowPriceSlider(true) }}>Choose Price Range</button>
+
+
+                            :
+
+                            <>
+                                <PriceRange />
+
+                                <button onClick={() => { setShowPriceSlider(false) }}>Set Price Range</button>
+
+                            </>
+                        }
                     </Container>
                 </Col>
                 <Col size="xs-6 sm-6">

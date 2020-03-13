@@ -31,9 +31,16 @@ function Index() {
             <Jumbotron ></Jumbotron>
 
 
+            <div>
+                <Row>
 
-            <Row>
+                    <Col size="xs-6 sm-6">
+                        <Container>
+                            <Input
+                                placeholder="search for an item" />
+                            <br></br>
 
+<<<<<<< HEAD
                 <Col size="xs-6 sm-6">
                     <Container>
                         {/* <Input
@@ -63,7 +70,18 @@ function Index() {
                     <DateRange></DateRange>
                 </Col>
             </Row>
+=======
 
+                        </Container>
+                    </Col>
+                    <Col size="xs-3 sm-3">
+
+>>>>>>> 4739f87693c082d8416333bca86f1668b5a79c42
+
+                        <DateRange></DateRange>
+                    </Col>
+                </Row>
+            </div>
 
             <Container>
                 <br></br>

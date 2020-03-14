@@ -1,10 +1,12 @@
 require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
+var express = require("express");
+var mongoose = require("mongoose");
+
 const routes = require("./routes");
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+var authMiddleware = require("./auth");
+var PORT = process.env.PORT || 3001;
+var app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -14,9 +16,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(express.static("./public"));
+app.use(authMiddleware());
 
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoStorefront";
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/monggoFlights";
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,

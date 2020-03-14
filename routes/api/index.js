@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const merchRoutes = require("./merch");
-const clothesRoutes = require("./products");
+const flightRoutes = require("./flight");
+const authRoutes = require("./auth");
 
-// Book routes
-router.use("/merch", merchRoutes);
-router.use("/products", clothesRoutes);
+router.use("/flight", flightRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;

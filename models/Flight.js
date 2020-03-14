@@ -12,6 +12,6 @@ const flightSchema = new Schema({
   }
 });
 
-const Flights = mongoose.model("Products", flightSchema);
+const Flights = mongoose.model("Flights", flightSchema);
 
 module.exports = Flights;

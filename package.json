@@ -9,7 +9,11 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.3",
-    "routes": "^2.1.0"
+    "routes": "^2.1.0",
+    "react-date-range": "^1.0.3",
+    "react-easy-flip": "^3.0.0",
+    "react-spring": "^8.0.27",
+    "react-string": "^1.0.5"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"

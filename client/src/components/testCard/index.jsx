@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { MdShoppingCart } from "react-icons/md";
+import { MdGetApp } from "react-icons/md";
 
 const Card = () => {
   return (
@@ -12,12 +12,11 @@ const Card = () => {
         <p className="card-text">Price</p>
         <button>
           {" "}
-          Save your trip <MdShoppingCart />
+          Save your trip <MdGetApp />
         </button>
         {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
       </div>
     </div>
   );
 };
-
 export default Card;

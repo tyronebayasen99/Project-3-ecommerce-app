@@ -10,9 +10,10 @@ module.exports = {
 
   searchFlight: (req, res) => {
     const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
+    console.log(req.params);
 
-    let start = "SMF";
-    let end = "JFK";
+    let start = req.params.depart;
+    let end = req.params.arrival;
     let flightDate = "2020-04-20";
 
     const flightPromise = new Promise((resolve, reject) => {
@@ -73,7 +74,9 @@ module.exports = {
                     const itinObj = {
                       seatPrice: itinData.pr.dp,
                       // seatType: itinData.fb,
-                      flightSchedule: flightPath
+                      flightSchedule: flightPath,
+                      departing: response.data.search_params.s[0].o,
+                      arriving: response.data.search_params.s[0].d
                     };
                     itinArr.push(itinObj);
                     console.log(itinArr);

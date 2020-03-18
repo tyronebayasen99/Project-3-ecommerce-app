@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export default {
-  searchFlights: function() {
-    return axios.get();
+  searchFlights: function(depart, arrival) {
+    return axios.get("/api/flights/search/" + depart + "-" + arrival);
   },
-  saveFlight: function() {
+  saveFlight: function(id) {
     return axios.post("/api/save/" + id);
   }
 };

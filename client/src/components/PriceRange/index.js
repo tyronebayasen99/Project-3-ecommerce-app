@@ -1,6 +1,6 @@
 import React from "react";
 import { Slider, Handles } from 'react-compound-slider'
-
+import './style.css';
 
 
 const sliderStyle = { // Give the slider some width
@@ -25,7 +25,7 @@ export function Handle({
 }) {
     return (
         <>
-            < div
+            < div className="Range"
                 style={{
                     left: `${percent}%`,
                     position: 'absolute',

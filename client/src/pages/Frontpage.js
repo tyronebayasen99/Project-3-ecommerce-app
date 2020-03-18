@@ -9,28 +9,27 @@ import DateRange from "../components/DateRange";
 import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
 import PriceRange from "../components/PriceRange";
-import { useAuth } from '../context/auth';
+import { useAuth } from "../context/auth";
 
 function FrontPage() {
-    const { setAuthTokens } = useAuth();
-    const { authTokens } = useAuth();
+  const { setAuthTokens } = useAuth();
+  const { authTokens } = useAuth();
 
-    function logOut() {
-        setAuthTokens();
-        localStorage.clear();
-        window.location.reload();
-    }
+  function logOut() {
+    setAuthTokens();
+    localStorage.clear();
+    window.location.reload();
+  }
 
-    return (
-        <div>
-            <Nav>
-            </Nav>
-            <Nav1></Nav1>
-            <FrontJumbotron></FrontJumbotron>
+  return (
+    <div>
+      <Nav></Nav>
+      <Nav1></Nav1>
+      <FrontJumbotron></FrontJumbotron>
 
-            {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
-        </div>
-    );
+      {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
+    </div>
+  );
 }
 
 export default FrontPage;

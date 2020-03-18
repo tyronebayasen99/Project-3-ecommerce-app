@@ -8,6 +8,7 @@ import Button from "../components/Button";
 // import API from "../utils/API";
 // import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
+import PriceRange from "../components/PriceRange"
 import { useAuth } from '../context/auth';
 
 function FrontPage() {

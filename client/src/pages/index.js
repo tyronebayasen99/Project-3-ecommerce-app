@@ -44,11 +44,9 @@ function Index() {
 
                     <Col size="xs-6 sm-6">
                         <Container>
-                            <Input
+                            {/* <Input
                                 placeholder="search for an item" />
-                            <br></br>
-
-
+                            <br></br> */}
                         </Container>
                     </Col>
                     <Col size="xs-3 sm-3">

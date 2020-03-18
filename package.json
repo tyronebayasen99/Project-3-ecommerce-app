@@ -12,6 +12,7 @@
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.3",
+    "react-compound-slider": "^2.5.0",
     "react-date-range": "^1.0.3",
     "react-easy-flip": "^3.0.0",
     "react-router-dom": "^5.1.2",

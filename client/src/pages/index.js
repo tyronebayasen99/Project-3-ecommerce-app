@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Nav from "../components/Nav";
 import Nav1 from "../components/NavBottom";
@@ -25,6 +25,8 @@ function Index() {
 
 
     const [showPriceSlider, setShowPriceSlider] = useState(false)
+
+    
     function logOut() {
         setAuthTokens();
         localStorage.clear();
@@ -39,7 +41,7 @@ function Index() {
             <div>
                 <Row>
 
-                    <Col size="xs-6 sm-6">
+                    {/* <Col size="xs-6 sm-6">
                         <Container>
                             <Input
                                 placeholder="search for an item" />
@@ -47,14 +49,11 @@ function Index() {
 
 
                         </Container>
-                    </Col>
+                    </Col> */}
                     <Col size="xs-3 sm-3">
-<<<<<<< HEAD
-                        <DateRange />
-=======
 
 
-                        <DateRange></DateRange>
+                        <DateRange/>
 
                         {showPriceSlider === false ?
                             <button onClick={() => { setShowPriceSlider(true) }}>Choose Price Range</button>
@@ -69,7 +68,6 @@ function Index() {
 
                             </>
                         }
->>>>>>> 9de55df6ad23756462f41ad8b189b42269143dc3
                     </Col>
                 </Row>
             </div>

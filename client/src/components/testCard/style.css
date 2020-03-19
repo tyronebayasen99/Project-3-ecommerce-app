@@ -3,7 +3,9 @@
 }
 
 .card {
-    width: 18rem;
+    text-align: center;
+    width: 97%;
+    margin: 1rem;
 }
 
 h5 {

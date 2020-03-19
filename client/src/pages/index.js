@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import Nav1 from "../components/NavBottom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { List, ListItem } from "../components/List";
 import API from "./../utils/API";
 import { useAuth } from "../context/auth";
 import DateRange from "../components/DateRange";
@@ -15,17 +16,16 @@ import { Container, Row, Col } from "../components/Grid";
 
 //components
 import Test from "../components/testCard";
-import Card from "../components/Card";
+// import Card from "../components/Card";
 // import Animations from "../components/Animations";
 
 function Index() {
   const { setAuthTokens } = useAuth();
   const { authTokens } = useAuth();
-//   const [items, setitems] = useState([]);
-//   const [itemSearch, setitemSearch] = useState("");
   const [depart, setDepartState] = useState([]);
   const [arrival, setArrivalState] = useState([]);
-  const [flights, setFlightState] = useState([]);
+
+  const [flights, setFlightState] = useState([{ price: "$0" }]);
 
   const handleDepartChange = e => {
     console.log(e.target.value);
@@ -40,12 +40,23 @@ function Index() {
   const handleFormSubmit = e => {
     e.preventDefault();
     API.searchFlights(depart, arrival)
-      .then(res => {
-        setFlightState(res.data);
-        setDepartState("");
-        setArrivalState("");
-        res.json(flights);
-        console.log(flights);
+      .then(response => {
+        // console.log(response);
+        // console.log(response.data.length);
+        response.data.map(item => {
+          if (item.flightSchedule) {
+            item.itinerary = Object.keys(item.flightSchedule).map(key => {
+              return item.flightSchedule[key];
+            });
+          }
+        });
+
+        console.log(response.data);
+
+        setFlightState(response.data);
+        // console.log(flights);
+        // setDepartState("");
+        // setArrivalState("");
       })
       .catch(err => console.log(err));
   };
@@ -111,24 +122,22 @@ function Index() {
         </Row>
       </div>
 
-      {/* <Container>
-        <br></br>
-        <Card></Card>
-      </Container> */}
       <Container>
         <Row>
-          <Col size="xs-12">
-            {flights.map(flight => {
-              return (
+          {flights.length ? 
+            <List>
+              {flights.map(flight => (
                 <Test
-                  price={flight.price}
-                  arrival={flight.arrival}
-                  depart={flight.depart}
-                  itinerary={flight.flightSchedule}
+                  price={flight.seatPrice}
+                  arrival={flight.arriving}
+                  depart={flight.departing}
+                  itinerary={flight.itinerary}
                 />
-              );
-            })}
-          </Col>
+              ))}
+            </List>
+           : (
+            <h3>No Results</h3>
+          )}
         </Row>
       </Container>
 

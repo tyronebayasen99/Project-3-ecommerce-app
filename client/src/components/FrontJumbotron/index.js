@@ -6,7 +6,7 @@ import FrontTop from "../FrontTop";
 function Jumbotron1() {
 
     return (
-        <div style={{ height: "500px" }}>
+        <div >
 
 
             <FrontTop></FrontTop>

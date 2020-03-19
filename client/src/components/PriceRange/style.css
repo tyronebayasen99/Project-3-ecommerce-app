@@ -1,0 +1,14 @@
+.Range {
+    position: absolute;
+    margin-left: -0;
+    margin-Top: 25;
+    z-Index: 2;
+    width: 30;
+    height: 28;
+    border: 0;
+    text-Align: center;
+    cursor: pointer;
+    border-Radius: 75%;
+    background-Color: '#2C4870';
+    color: '#333';
+}

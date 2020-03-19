@@ -7,10 +7,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
-<<<<<<< HEAD
-    "auth0-js": "^9.12.2",
-=======
->>>>>>> dcf6aae36c957bf4d7c38587151cf10ffd3388f3
     "axios": "^0.19.2",
     "html-to-react": "^1.4.2",
     "rc-slider": "^9.2.2",

@@ -8,18 +8,11 @@ import DateRange from "../components/DateRange";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
-import PriceRange from "../components/PriceRange";
-import { useAuth } from "../context/auth";
+import PriceRange from "../components/PriceRange"
+
 
 function FrontPage() {
-  const { setAuthTokens } = useAuth();
-  const { authTokens } = useAuth();
 
-  function logOut() {
-    setAuthTokens();
-    localStorage.clear();
-    window.location.reload();
-  }
 
   return (
     <div>
@@ -27,7 +20,7 @@ function FrontPage() {
       <Nav1></Nav1>
       <FrontJumbotron></FrontJumbotron>
 
-      {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
+
     </div>
   );
 }

@@ -12,8 +12,12 @@ module.exports = {
     const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
     console.log(req.params);
 
+    // let start = "SFO";
+    // let end = "JFK";
+
     let start = req.params.depart;
     let end = req.params.arrival;
+
     let flightDate = "2020-04-20";
 
     const flightPromise = new Promise((resolve, reject) => {
@@ -80,13 +84,15 @@ module.exports = {
                     };
                     itinArr.push(itinObj);
                   });
-                  console.log(itinArr);
-                  res.json(itinArr);
+                  // console.log(itinArr);
                 } catch (e) {
                   // console.log(e);
                 }
                 resolve2(itinArr);
               });
+          });
+          flightPromise2.then(results => {
+            res.json(results);
           });
         });
     });

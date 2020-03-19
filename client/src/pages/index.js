@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import Nav1 from "../components/NavBottom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { List, ListItem } from "../components/List";
 import API from "./../utils/API";
 import { useAuth } from "../context/auth";
 import DateRange from "../components/DateRange";
@@ -20,13 +21,11 @@ import Animations from "../components/Animations";
 function Index() {
   const { setAuthTokens } = useAuth();
   const { authTokens } = useAuth();
-  const [items, setitems] = useState([]);
-  const [itemSearch, setitemSearch] = useState("");
-  let [state, setState] = useState("NoFlights");
+
   const [depart, setDepartState] = useState([]);
   const [arrival, setArrivalState] = useState([]);
-  const [flights, setFlightState] = useState([]);
-  let flightArray = [];
+
+  const [flights, setFlightState] = useState([{ price: "$0" }]);
 
   const handleDepartChange = e => {
     //console.log(e.target.value);
@@ -42,17 +41,23 @@ function Index() {
     e.preventDefault();
     setState("Flights");
     API.searchFlights(depart, arrival)
-      .then(res => {
-        //console.log(res.data);
-        let data = res.data;
-        data.forEach(object => {
-          let x = Object.entries(object);
-          flightArray.push(x);
-        })
-        console.log(flightArray[1][1]);
-        setFlightState(flightArray);
-        setDepartState("");
-        setArrivalState("");
+      .then(response => {
+        // console.log(response);
+        // console.log(response.data.length);
+        response.data.map(item => {
+          if (item.flightSchedule) {
+            item.itinerary = Object.keys(item.flightSchedule).map(key => {
+              return item.flightSchedule[key];
+            });
+          }
+        });
+
+        console.log(response.data);
+
+        setFlightState(response.data);
+        // console.log(flights);
+        // setDepartState("");
+        // setArrivalState("");
       })
       .catch(err => console.log(err));
   };
@@ -118,24 +123,50 @@ function Index() {
         </Row>
       </div>
 
-      <div>
-        <Container>
-          <Row>
-            <Col size="xs-12">
-              {flights.map(flight => {
-                return (
-                  <Test
-                    price={flight[0][1]}
-                    arrival={flight[3][1]}
-                    depart={flight[2][1]}
-                    itinerary={flight[1][0]}
-                  />
-                );
-              })}
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      {/* <Container>
+        <br></br>
+        <Card></Card>
+      </Container> */}
+      <Container>
+        <Row>
+          {/* <Col size="xs-12">
+            {flights.length ? (
+            {flights.map(flight => {
+                <Test
+                  price={flight.price}
+                  arrival={flight.arrival}
+                  depart={flight.depart}
+                  itinerary={flight.flightSchedule}
+                />
+            })}
+            ) : ( <h3>No Results to Display</h3>
+  )}
+          </Col> */}
+
+          {/* <Test
+            price={flight.seatPrice}
+            arrival={flight.arriving}
+            depart={flight.departing}
+            itinerary={flight.itinerary}
+          /> */}
+
+          {flights.length ? (
+            <List>
+              {flights.map(flight => (
+                <Test
+                  price={flight.seatPrice}
+                  arrival={flight.arriving}
+                  depart={flight.departing}
+                  itinerary={flight.itinerary}
+                />
+              ))}
+            </List>
+          ) : (
+              <h3>No Results</h3>
+            )}
+        </Row>
+      </Container>
+
       {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
     </div>
   );

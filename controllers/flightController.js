@@ -79,8 +79,9 @@ module.exports = {
                       arriving: response.data.search_params.s[0].d
                     };
                     itinArr.push(itinObj);
-                    console.log(itinArr);
                   });
+                  console.log(itinArr);
+                  res.json(itinArr);
                 } catch (e) {
                   // console.log(e);
                 }

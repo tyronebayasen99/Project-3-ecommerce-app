@@ -22,29 +22,37 @@ function Index() {
   const { authTokens } = useAuth();
   const [items, setitems] = useState([]);
   const [itemSearch, setitemSearch] = useState("");
+  let [state, setState] = useState("NoFlights");
   const [depart, setDepartState] = useState([]);
   const [arrival, setArrivalState] = useState([]);
   const [flights, setFlightState] = useState([]);
+  let flightArray = [];
 
   const handleDepartChange = e => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setDepartState(e.target.value);
   };
 
   const handleDestinationChange = e => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setArrivalState(e.target.value);
   };
 
   const handleFormSubmit = e => {
     e.preventDefault();
+    setState("Flights");
     API.searchFlights(depart, arrival)
       .then(res => {
-        // console.log(res);
-        setFlightState(res.data);
+        //console.log(res.data);
+        let data = res.data;
+        data.forEach(object => {
+          let x = Object.entries(object);
+          flightArray.push(x);
+        })
+        console.log(flightArray[1][1]);
+        setFlightState(flightArray);
         setDepartState("");
         setArrivalState("");
-        console.log(flights);
       })
       .catch(err => console.log(err));
   };
@@ -110,27 +118,24 @@ function Index() {
         </Row>
       </div>
 
-      {/* <Container>
-        <br></br>
-        <Card></Card>
-      </Container> */}
-      <Container>
-        <Row>
-          <Col size="xs-12">
-            {flights.map(flight => {
-              return (
-                <Test
-                  price={flight.price}
-                  arrival={flight.arrival}
-                  depart={flight.depart}
-                  itinerary={flight.flightSchedule}
-                />
-              );
-            })}
-          </Col>
-        </Row>
-      </Container>
-
+      <div>
+        <Container>
+          <Row>
+            <Col size="xs-12">
+              {flights.map(flight => {
+                return (
+                  <Test
+                    price={flight[0][1]}
+                    arrival={flight[3][1]}
+                    depart={flight[2][1]}
+                    itinerary={flight[1][0]}
+                  />
+                );
+              })}
+            </Col>
+          </Row>
+        </Container>
+      </div>
       {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
     </div>
   );

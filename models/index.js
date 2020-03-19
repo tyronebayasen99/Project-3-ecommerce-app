@@ -1,4 +1,3 @@
 module.exports = {
-    Flight: require("./flight"),
-    User: require("./user")
+  Flights: require("./Flight")
 };

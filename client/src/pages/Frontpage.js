@@ -8,29 +8,37 @@ import Button from "../components/Button";
 // import API from "../utils/API";
 // import { Container, Row, Col } from "../components/Grid";
 import FrontJumbotron from "../components/FrontJumbotron";
-import PriceRange from "../components/PriceRange"
-import { useAuth } from '../context/auth';
+import PriceRange from "../components/PriceRange";
+import { useAuth } from "../context/auth";
 
 function FrontPage() {
-    const { setAuthTokens } = useAuth();
-    const { authTokens } = useAuth();
+  const { setAuthTokens } = useAuth();
+  const { authTokens } = useAuth();
 
-    function logOut() {
-        setAuthTokens();
-        localStorage.clear();
-        window.location.reload();
-    }
+  function logOut() {
+    setAuthTokens();
+    localStorage.clear();
+    window.location.reload();
+  }
 
-    return (
-        <div>
-            <Nav>
-            </Nav>
-            <Nav1></Nav1>
-            <FrontJumbotron></FrontJumbotron>
+  return (
+    <>
+      <Nav/>
+      <Nav1/>
+      <FrontJumbotron/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      {authTokens ? <Button onClick={logOut}>Log out</Button> : <></>}
 
-            {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
-        </div>
-    );
+   </>
+  );
 }
 
 export default FrontPage;

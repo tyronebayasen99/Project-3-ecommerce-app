@@ -27,6 +27,7 @@ export function Handle({
         <>
             < div className="Range"
                 style={{
+                    
                     left: `${percent}%`,
                     position: 'absolute',
                     marginLeft: -0,

@@ -19,7 +19,7 @@ module.exports = {
     },
     signUp: async function (req, res) {
         console.log(req.body)
-        const email = req.body.email.toLowerCase();
+        const email = req.body.email;
 
         const password = await bcrypt.hash(req.body.password, 10);
 

@@ -12,14 +12,11 @@ module.exports = {
     const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
     console.log(req.params);
 
-    // let start = "SFO";
-    // let end = "JFK";
-
     let start = req.params.depart;
     let end = req.params.arrival;
 
-    let departureDate = req.params.departDate;
-    let returnDate = req.params.returnDate;
+    let departureDate = "2020-04-20";
+    // let returnDate = req.params.returnDate;
 
     const flightPromise = new Promise((resolve, reject) => {
       axios
@@ -32,8 +29,8 @@ module.exports = {
           params: {
             d1: end,
             o1: start,
-            dd1: departureDate,
-            dd2: returnDate
+            dd1: departureDate
+            // dd2: returnDate
           }
         })
         .then(response => {

@@ -105,10 +105,10 @@ const PriceRange = () => {
       <div>
         <Slider
           rootStyle={sliderStyle}
-          domain={[20, 1000]}
+          domain={[0, 1000]}
           step={1}
           mode={2}
-          values={[20]}
+          values={[0]}
         >
           <div style={railStyle} />
           <Handles>
@@ -129,10 +129,10 @@ const PriceRange = () => {
       <div>
         <Slider
           rootStyle={sliderStyle}
-          domain={[20, 1000]}
+          domain={[1, 1000]}
           step={1}
           mode={2}
-          values={[20]}
+          values={[1]}
         >
           <div style={railStyle} />
           <Handles>

@@ -12,6 +12,7 @@ import PriceRange from "../components/PriceRange/index";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from "react-spring";
+import { MdMonetizationOn } from "react-icons/md";
 
 //components
 import Test from "../components/testCard";
@@ -25,7 +26,9 @@ function Index() {
   const [depart, setDepartState] = useState([]);
   const [arrival, setArrivalState] = useState([]);
 
-  const [flights, setFlightState] = useState([{ price: "$0" }]);
+  const [flights, setFlightState] = useState([
+    { seatPrice: "Example", arriving: "Example", departing: "Example" }
+  ]);
 
   // const handleSelect = ranges => {
   //   console.log(ranges);
@@ -33,13 +36,13 @@ function Index() {
   // };
 
   const handleDepartChange = e => {
-    console.log(e.target.value);
-    setDepartState(e.target.value);
+    //console.log(e.target.value);
+    setDepartState(e.target.value.toUpperCase());
   };
 
   const handleDestinationChange = e => {
-    console.log(e.target.value);
-    setArrivalState(e.target.value);
+    //console.log(e.target.value);
+    setArrivalState(e.target.value.toUpperCase());
   };
 
   const handleFormSubmit = e => {
@@ -64,11 +67,6 @@ function Index() {
   };
 
   const [showPriceSlider, setShowPriceSlider] = useState(false);
-  function logOut() {
-    setAuthTokens();
-    localStorage.clear();
-    window.location.reload();
-  }
 
   return (
     <div>
@@ -78,71 +76,97 @@ function Index() {
 
       <div>
         <Row>
-          <Col size="xs-6 sm-6">
-            <Container>
-              <Input
-                onChange={handleDepartChange}
-                value={depart}
-                placeholder="Departure"
-              />
-              <Input
-                onChange={handleDestinationChange}
-                value={arrival}
-                placeholder="Destination"
-              />
-              <br></br>
-              <Button onClick={handleFormSubmit} type="success">
-                Search
-              </Button>
-            </Container>
-          </Col>
-          <Col size="xs-3 sm-3">
-            <DateRange></DateRange>
+          <div className="searchContainer">
+            <div className="ranges">
+              <h5 className="guideText">
+                Coming Soon!-
+                <div className="soonText">
+                  Enter date and price range to find flights to somewhere you
+                  didnt even know you wanted to go!
+                </div>{" "}
+              </h5>
 
-            {showPriceSlider === false ? (
-              <button
-                onClick={() => {
-                  setShowPriceSlider(true);
-                }}
-              >
-                Choose Price Range
-              </button>
-            ) : (
-              <>
-                <PriceRange />
+              <DateRange></DateRange>
+              <div className="pricesRange">
+                {showPriceSlider === false ? (
+                  <Button
+                    onClick={() => {
+                      setShowPriceSlider(true);
+                    }}
+                  >
+                    Choose Price Range
+                  </Button>
+                ) : (
+                  <>
+                    <PriceRange />
 
-                <button
-                  onClick={() => {
-                    setShowPriceSlider(false);
-                  }}
-                >
-                  Set Price Range
-                </button>
-              </>
-            )}
-          </Col>
+                    <Button
+                      onClick={() => {
+                        setShowPriceSlider(false);
+                      }}
+                    >
+                      Set Price Range
+                    </Button>
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="destDep">
+              <h5 className="guideText">
+                Enter Airport Codes (Ex: SMF, JFK, LAX, etc.) to Begin Searching
+                For Upcoming Flights!
+              </h5>
+
+              <Container>
+                <Input
+                  onChange={handleDepartChange}
+                  value={depart}
+                  placeholder="Departure"
+                />
+                <Input
+                  onChange={handleDestinationChange}
+                  value={arrival}
+                  placeholder="Destination"
+                />
+                <br></br>
+              </Container>
+            </div>
+
+            <Button
+              onClick={handleFormSubmit}
+              type="success"
+              className="searchBtn"
+            >
+              Search
+            </Button>
+          </div>
         </Row>
       </div>
-      <Container>
-        <Row>
-          {flights.length ? (
-            <List>
-              {flights.map(flight => (
-                <Test
-                  price={flight.seatPrice}
-                  arrival={flight.arriving}
-                  depart={flight.departing}
-                  itinerary={flight.itinerary}
-                />
-              ))}
-            </List>
-          ) : (
-            <h3>No Results</h3>
-          )}
-        </Row>
-      </Container>
-
-      {authTokens ? <Button onClick={logOut}>Log out</Button> : <div></div>}
+      <div className="resultsBox">
+        <Container>
+          <Row>
+            {flights.length > 1 ? (
+              <h3 className="tripsPopulated">Trips Populated!</h3>
+            ) : (
+              <div></div>
+            )}
+            {flights.length ? (
+              <List>
+                {flights.map(flight => (
+                  <Test
+                    price={flight.seatPrice}
+                    arrival={flight.arriving}
+                    depart={flight.departing}
+                    itinerary={flight.itinerary}
+                  />
+                ))}
+              </List>
+            ) : (
+              <h3>No Results</h3>
+            )}
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }

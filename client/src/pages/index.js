@@ -11,6 +11,8 @@ import PriceRange from "../components/PriceRange/index";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from "react-spring";
+import { MdMonetizationOn } from "react-icons/md";
+
 
 //components
 import Test from "../components/testCard";
@@ -84,28 +86,29 @@ function Index() {
           </Col>
           <Col size="xs-3 sm-3">
             <DateRange></DateRange>
-
+            <br></br>
+            <br></br>
             {showPriceSlider === false ? (
-              <button
+              <Button
                 onClick={() => {
                   setShowPriceSlider(true);
                 }}
               >
-                Choose Price Range
-              </button>
+                Choose Price Range < MdMonetizationOn />
+              </Button>
             ) : (
-              <>
-                <PriceRange />
+                <>
+                  <PriceRange />
 
-                <button
-                  onClick={() => {
-                    setShowPriceSlider(false);
-                  }}
-                >
-                  Set Price Range
-                </button>
-              </>
-            )}
+                  <Button
+                    onClick={() => {
+                      setShowPriceSlider(false);
+                    }}
+                  >
+                    Set Price Range
+                </Button>
+                </>
+              )}
           </Col>
         </Row>
       </div>

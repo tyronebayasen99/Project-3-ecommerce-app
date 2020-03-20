@@ -12,6 +12,8 @@ import PriceRange from "../components/PriceRange/index";
 // import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from "react-spring";
+import { MdMonetizationOn } from "react-icons/md";
+
 
 //components
 import Test from "../components/testCard";

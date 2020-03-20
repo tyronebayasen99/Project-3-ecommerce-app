@@ -30,7 +30,7 @@ const FrontTop = () => {
             key={key}
             className="slides"
             style={{ ...props, backgroundImage: `url(https://images.unsplash.com/${item.url}&auto=format&fit=crop)` }}
-        ><div className="FrontPage">Maximize your life</div><div className="miniHeader">In the end, we only regret not living life to the max.</div> <div className="bottomInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        ><div className="FrontPage">Maximize your life</div><div className="miniHeader">In the end, we only regret not living life to the max.</div> <div className="bottomInfo">Hello, Welcome to Maximialist. Maximialist is designed to make traveling a lot easier. Often times, people do not know where to go, and don't realize they could travel various places within their budget. You can literally travel the world with this App. When you click on "Search Trip", all you have to do is enter a time frame (ex: 5/5/2020-5/12/2020) and a budget (ex: $200-$500) and Maximize will look for travel locations within your budget and time frame. Maximize can be utilized by anyone and is very user friendly. Put in some dates and let's explore! The Sky is the Limit!</div>
 
 
 

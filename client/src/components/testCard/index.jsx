@@ -9,12 +9,31 @@ const Card = ({ price, depart, arrival, itinerary = [] }) => {
       <div className="card-body">
         <h5 className="card-title">Depart: {depart} </h5>
         <h5 className="card-title">Arrival: {arrival}</h5>
-        <p className="card-text">
+        <div className="card-text">
           Trip & description:{" "}
           {itinerary.map((item, i) => {
-            return <h5 key={i}>{item.departingAirport}</h5>;
+            const departTime = new Date(item.departTime);
+            const arriveTime = new Date(item.arriveTime);
+            const departHours = departTime
+              .toLocaleTimeString
+              // (navigator.language,
+              // { hour: "2-digit", minute: "2-digit" }).replace(
+              //   /(:\d{2}| [AP]M)$/,
+              //   ""
+              // )
+              ();
+            const arriveHours = arriveTime.toLocaleTimeString();
+            return (
+              <div>
+                <p>
+                  {item.departingAirport}-{item.arrivalAirport}
+                </p>
+                <p>Departing time: {departHours}</p>
+                <p>Arriving time: {arriveHours}</p>
+              </div>
+            );
           })}{" "}
-        </p>
+        </div>
         <p className="card-text">Price: {price}</p>
         <button>
           {" "}

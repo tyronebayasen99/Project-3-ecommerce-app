@@ -27,6 +27,11 @@ function Index() {
 
   const [flights, setFlightState] = useState([{ price: "$0" }]);
 
+  // const handleSelect = ranges => {
+  //   console.log(ranges);
+  //   setDateState({ selection: ranges.selection });
+  // };
+
   const handleDepartChange = e => {
     console.log(e.target.value);
     setDepartState(e.target.value);
@@ -54,9 +59,6 @@ function Index() {
         console.log(response.data);
 
         setFlightState(response.data);
-        // console.log(flights);
-        // setDepartState("");
-        // setArrivalState("");
       })
       .catch(err => console.log(err));
   };
@@ -121,34 +123,8 @@ function Index() {
           </Col>
         </Row>
       </div>
-
-      {/* <Container>
-        <br></br>
-        <Card></Card>
-      </Container> */}
       <Container>
         <Row>
-          {/* <Col size="xs-12">
-            {flights.length ? (
-            {flights.map(flight => {
-                <Test
-                  price={flight.price}
-                  arrival={flight.arrival}
-                  depart={flight.depart}
-                  itinerary={flight.flightSchedule}
-                />
-            })}
-            ) : ( <h3>No Results to Display</h3>
-  )}
-          </Col> */}
-
-          {/* <Test
-            price={flight.seatPrice}
-            arrival={flight.arriving}
-            depart={flight.departing}
-            itinerary={flight.itinerary}
-          /> */}
-
           {flights.length ? (
             <List>
               {flights.map(flight => (

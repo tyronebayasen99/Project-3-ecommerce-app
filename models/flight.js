@@ -7,8 +7,21 @@ const flightSchema = new Schema({
     type: String,
     require: true
   },
-  flightSchedule: {
-    type: Object
+  layovers: {
+    type: Number,
+    require: true
+  },
+  token: {
+    type: String,
+    require: true
+  },
+  destination: {
+    type: String,
+    require: true
+  },
+  departure: {
+    type: String,
+    require: true
   }
 });
 

@@ -14,7 +14,6 @@ import { Container, Row, Col } from "../components/Grid";
 import { useSpring, animated } from "react-spring";
 import { MdMonetizationOn } from "react-icons/md";
 
-
 //components
 import Test from "../components/testCard";
 import Card from "../components/Card";
@@ -27,7 +26,14 @@ function Index() {
   const [depart, setDepartState] = useState([]);
   const [arrival, setArrivalState] = useState([]);
 
-  const [flights, setFlightState] = useState([{ seatPrice: "Example", arriving: "Example", departing: "Example" }]);
+  const [flights, setFlightState] = useState([
+    { seatPrice: "Example", arriving: "Example", departing: "Example" }
+  ]);
+
+  // const handleSelect = ranges => {
+  //   console.log(ranges);
+  //   setDateState({ selection: ranges.selection });
+  // };
 
   const handleDepartChange = e => {
     //console.log(e.target.value);
@@ -56,9 +62,6 @@ function Index() {
         console.log(response.data);
 
         setFlightState(response.data);
-        // console.log(flights);
-        // setDepartState("");
-        // setArrivalState("");
       })
       .catch(err => console.log(err));
   };
@@ -75,7 +78,13 @@ function Index() {
         <Row>
           <div className="searchContainer">
             <div className="ranges">
-              <h5 className="guideText">Coming Soon!-<div className="soonText">Enter date and price range to find flights to somewhere you didnt even know you wanted to go!</div> </h5>
+              <h5 className="guideText">
+                Coming Soon!-
+                <div className="soonText">
+                  Enter date and price range to find flights to somewhere you
+                  didnt even know you wanted to go!
+                </div>{" "}
+              </h5>
 
               <DateRange></DateRange>
               <div className="pricesRange">
@@ -88,22 +97,25 @@ function Index() {
                     Choose Price Range
                   </Button>
                 ) : (
-                    <>
-                      <PriceRange />
+                  <>
+                    <PriceRange />
 
-                      <Button
-                        onClick={() => {
-                          setShowPriceSlider(false);
-                        }}
-                      >
-                        Set Price Range
-                </Button>
-                    </>
-                  )}
+                    <Button
+                      onClick={() => {
+                        setShowPriceSlider(false);
+                      }}
+                    >
+                      Set Price Range
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
             <div className="destDep">
-              <h5 className="guideText">Enter Airport Codes (Ex: SMF, JFK, LAX, etc.) to Begin Searching For Upcoming Flights!</h5>
+              <h5 className="guideText">
+                Enter Airport Codes (Ex: SMF, JFK, LAX, etc.) to Begin Searching
+                For Upcoming Flights!
+              </h5>
 
               <Container>
                 <Input
@@ -117,20 +129,27 @@ function Index() {
                   placeholder="Destination"
                 />
                 <br></br>
-
               </Container>
             </div>
 
-            <Button onClick={handleFormSubmit} type="success" className="searchBtn">
+            <Button
+              onClick={handleFormSubmit}
+              type="success"
+              className="searchBtn"
+            >
               Search
-              </Button>
+            </Button>
           </div>
         </Row>
       </div>
       <div className="resultsBox">
         <Container>
           <Row>
-            {flights.length > 1 ? <h3 className="tripsPopulated">Trips Populated!</h3> : <div></div>}
+            {flights.length > 1 ? (
+              <h3 className="tripsPopulated">Trips Populated!</h3>
+            ) : (
+              <div></div>
+            )}
             {flights.length ? (
               <List>
                 {flights.map(flight => (
@@ -143,8 +162,8 @@ function Index() {
                 ))}
               </List>
             ) : (
-                <h3>No Results</h3>
-              )}
+              <h3>No Results</h3>
+            )}
           </Row>
         </Container>
       </div>

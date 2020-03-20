@@ -1,3 +1,41 @@
-body {
-    height: 1000px;
+.searchContainer{
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+}
+
+.destDep{
+    display: inline;
+}
+
+.ranges{
+    float: right;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 10px;
+}
+
+.guideText{
+    text-align: center;
+}
+
+.pricesRange{
+    padding-top: 15px;
+}
+
+.tripsPopulated{
+    margin-right: 15%;
+}
+
+.resultsBox{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.soonText{
+    font-size: 10px;
+    width: 180px;
+    text-align: center;
+    margin: 0 auto;
 }

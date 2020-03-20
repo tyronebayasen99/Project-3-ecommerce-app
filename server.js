@@ -19,7 +19,7 @@ app.use(express.static("./public"));
 app.use(authMiddleware());
 
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/monggoFlights";
+  process.env.MONGODB_URI || "mongodb://localhost/mongoFlights";
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
@@ -28,6 +28,6 @@ mongoose.connect(MONGODB_URI, {
 
 app.use(routes);
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
 });

@@ -4,7 +4,6 @@ import { AuthContext } from "./context/auth";
 import PrivateRoute from "./PrivateRoute";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Admin from "./pages/Admin";
 import indexPage from "./pages/index";
 import savedPage from "./pages/saved";
 import frontPage from "./pages/Frontpage";
@@ -31,7 +30,6 @@ export default function App(props) {
             <Route path="/signup" component={Signup} />
 
             <PrivateRoute exact path="/saved" component={savedPage} />
-            <PrivateRoute path="/admin" component={Admin} />
           </Switch>
         </div>
       </Router>

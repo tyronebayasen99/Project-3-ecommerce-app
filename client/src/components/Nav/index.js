@@ -5,8 +5,6 @@ import { MdGetApp } from 'react-icons/md';
 import { useAuth } from '../../context/auth';
 import Button from "../Button";
 
-
-
 function Nav() {
     const { setAuthTokens } = useAuth();
 
